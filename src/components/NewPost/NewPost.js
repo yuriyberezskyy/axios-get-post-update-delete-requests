@@ -15,16 +15,14 @@ class NewPost extends Component {
       body: this.state.content,
       author: this.state.author,
     };
-    axios
-      .post("https://jsonplaceholder.typicode.com/posts", data)
-      .then((response) => {
-        console.log(response);
-        this.setState({
-          title: "",
-          content: "",
-          author: "Max",
-        });
+    axios.post("/posts", data).then((response) => {
+      console.log(response);
+      this.setState({
+        title: "",
+        content: "",
+        author: "Max",
       });
+    });
   };
 
   render() {
